@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/4ee361ff45.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>SAM AI-Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="AI-Title">
+      <div class="title">
+        <span>A</span>
+        <span>R</span>
+        <span>T</span>
+        <span>I</span>
+        <span>F</span>
+        <span>I</span>
+        <span>C</span>
+        <span>I</span>
+        <span>A</span>
+        <span>L</span>
+      </div>
+      <h2>INTELLIGENCE</h2>
+    </div>
+
+    <div class="main-container">
+      <div class="card">
+        <div class="welcome">
+          <h1 class="sam">Welcome... I'm SAM.</h1>
+        </div>
+        <div class="para-text">
+          <p id="typing"></p>
+        </div>
+
+        <div class="btn-section">
+          <div class="btn">
+            <a id="open-popupSign" style="display: flex">Sign Up</a>
+          </div>
+
+          <div class="btn">
+            <a id="roboIcon" style="display: none">🤖</a>
+          </div>
+
+          <div id="signOutBtn" class="signOutBtn">
+            <div class="popupSignOut">
+              <h3>Are you sure you want to sign out?</h3>
+              <div class="button-group">
+                <button id="yes-btn" class="yes-btn">Yes</button>
+                <button id="no-btn" class="no-btn">No</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn">
+            <a id="introPopupBtn">Intro</a>
+          </div>
+
+          <div
+            id="popup-container"
+            class="popup-container"
+            style="display: none"
+          >
+            <div class="popup">
+              <h1>ARTIFICIAL</h1>
+              <h2>INTELLIGENCE</h2>
+              <p>Welcome to our platform! Choose an option below:</p>
+              <div class="popup-buttons">
+                <button id="play-intro">Play Intro</button>
+                <button id="skip-intro">Skip</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="video-container"
+            id="video-container"
+            style="display: none"
+          >
+            <video id="intro-video">
+              <source src="images/intro.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="btn">
+            <a onclick="next();">Next</a>
+          </div>
+
+          <div class="container" id="popup-Sign" style="display: none">
+            <div class="signup-box">
+              <h1 class="signText">Sign Up</h1>
+              <a id="cross"><i class="fa-solid fa-xmark"></i></a>
+
+              <form name="submit-to-google-sheet">
+                <div class="form-group">
+                  <label for="fullname">Full Name</label>
+                  <input
+                    type="text"
+                    name="Name"
+                    id="fullname"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select id="gender" name="Gender" required>
+                    <option value="" disabled selected>
+                      Select your gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="Tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    pattern="[0-9]{10}"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    name="Email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Create Password</label>
+                  <div class="password-container">
+                    <input
+                      type="password"
+                      name="Password"
+                      id="password"
+                      placeholder="Create a password"
+                      required
+                      minlength="8"
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                      title="At least 8 characters | A-Z | a-z | 0-9 | @$!%*?&"
+                    />
+                    <span
+                      class="toggle-password"
+                      onclick='togglePasswordVisibility("password", "eye1")'
+                      ;
+                    >
+                      <img
+                        id="eye1"
+                        src="images/eye.png"
+                        alt="Show/Hide Password"
+                      />
+                    </span>
+                  </div>
+                </div>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/merajsiddique07/" target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/invites/contact/?i=vjpcj9u8d5ux&utm_content=3visgi2"
+            target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/sheikh.meraj.96?mibextid=ZbWKwL"
+            target="_blank"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="satellite-image">
+        <img class="satellite" src="images/h1.gif" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
