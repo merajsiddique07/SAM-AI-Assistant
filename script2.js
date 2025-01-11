@@ -8,6 +8,7 @@ const end = new Audio('images/end.mp3');
 var song = new Audio('images/song.mp3');
 var command ="";
 var apiResponse ="";
+const storedUserData = JSON.parse(localStorage.getItem("userData"));
 
 const API_Key = "AIzaSyBT3tRLHdvhs5Bcw80QipKMyjX19o5viZg";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_Key}`;
@@ -30,23 +31,15 @@ const generateAPIResponse = async () => {
     const data = await response.json();
     apiResponse = data?.candidates[0].content.parts[0].text;
     speak(apiResponse);
-   // console.log(apiResponse);
   } catch (error) {
     console.log(error);
   }
 };
+
 var hours = 0;
 var minutes = 0;
 var amPm = '';
 var num = 1;
-
-const urlParams = new URLSearchParams(window.location.search);
-const UserData = {
-  Name: urlParams.get("Uname"),
-  Gender: urlParams.get("Ugender"),
-  Tel: urlParams.get("Utel"),
-  Email: urlParams.get("Uemail"),
-}
 
 function updateDateTime() {
   const now = new Date();
@@ -103,7 +96,7 @@ if (false) {
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition();
-recognition.lang = 'en-US';
+recognition.lang = 'en-IN';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
@@ -143,19 +136,19 @@ function handleCommand(command) {
     speak(`Hello!, I am SAM How can I assist you today?`);
   }
   else if (command.includes("Mobile number") || command.includes("What is my phone number") || command.includes("My mobile number") || command.includes("What is my mobile number") || command.includes("Contact number") || command.includes("My contact number.")) {
-    if(UserData.Name ===null){
+    if(storedUserData.Name ===null){
       speak("I don't have your contact, Please register while starting the app.");
     }
     else{
-    speak(`your phone number is,${UserData.Tel}`);
+    speak(`your phone number is,${storedUserData.Tel}`);
     }
   }
   else if (command.includes("My name") || command.includes("Who I am") || command.includes("Name please") || command.includes("What is my name") || command.includes("What's my name")) {
-    if(UserData.Name ===null){
+    if(storedUserData.Name ===null){
       speak("I don't have your name, Please register while starting the app.");
     }
    else{ 
-    speak(`your are ,${UserData.Name}`);
+    speak(`your are ,${storedUserData.Name}`);
    }
   }
   else if (command.includes("Open Facebook")) {
