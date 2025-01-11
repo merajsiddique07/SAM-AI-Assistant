@@ -1,11 +1,4 @@
 
-var UserData = {
-  UName: "",
-  UGender: 0,
-  UEel: 0,
-  UEmail: "",
-};
-
 function togglePasswordVisibility(passwordFieldId, eyeIconId) {
   const passwordField = document.getElementById(passwordFieldId);
   const eyeIcon = document.getElementById(eyeIconId);
@@ -116,7 +109,7 @@ form = document.forms["submit-to-google-sheet"];
     popupSign.style.display = "none";
 
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
-    
+
     if (storedUserData) {
       if (storedUserData.Gender === "male") {
         text = `Hello Mr. ${storedUserData.Name}. Welcome to AI Assistant ! I'm 'SAM' here to simplify your tasks and make your experience effortless. Click on the Intro button to play an engaging introduction video about the assistant.`;
@@ -149,12 +142,6 @@ form = document.forms["submit-to-google-sheet"];
   const initializeUI = () => {
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
 
-    UserData={
-      UName: storedUserData.Name,
-      UGender: storedUserData.Gender,
-      UTel: storedUserData.Tel,
-      UEmail: storedUserData.Email,
-    };
 
     if (storedUserData) {
       signedIn.style.display = "none";
@@ -171,8 +158,8 @@ form = document.forms["submit-to-google-sheet"];
   initializeUI();
 });
 
-function next(){
-      window.location.href = "index2.html?Uname=" 
-    + encodeURIComponent(UserData.UName) + "&Ugender=" + encodeURIComponent(UserData.UGender)
-    + "&Utel=" + encodeURIComponent(UserData.UTel) + "&Uemail=" + encodeURIComponent(UserData.UEmail);
-  }
+// function next(){
+//       window.location.href = "index2.html?Uname=" 
+//     + encodeURIComponent(UserData.UName) + "&Ugender=" + encodeURIComponent(UserData.UGender)
+//     + "&Utel=" + encodeURIComponent(UserData.UTel) + "&Uemail=" + encodeURIComponent(UserData.UEmail);
+//   }
